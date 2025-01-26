@@ -1,7 +1,35 @@
-# Vue 3 + Vite
+# 博客管理端
+工具 :node.js vue3 vite
+依赖：
+sass 高亮 路由 md5加密（密码） element-plus axio router path路径 vue 等
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 内容
+博客 博客分类 专题 设置（个人信息 成员 系统设置） 回收站
 
-## Recommended IDE Setup
+### 博客
+博客分为博客管理和分类管理。博客管理对具体的博客进行创建修改删除预览（增删改查？）在定期时间自动保存，如果未发布则设置为草稿。可以在该页面根据状态和发布状态和名字进行查找。成员可以自行选择markdwon或富文本编辑器写内容，并在填写必要信息后点击发布。
+发布好的博客会根据类型在博客分类里头存在
+分类可以自行创建，并可以上下进行排序，排序结果不同会在访客端显示不同顺序。
+### 专题管理
+这里有点像专门一系列内容专题，可以在这边写.这里有较为严格的等级排序，方便同一系列内容的整体阅览。其中每一块内容也和博客撰写界面差不多。
+### 设置
+这里可以设置个人信息,可以查看博客其他成员，如果是管理员账号，则也可以对管理员进行增删改查。最后系统设置用来配置一些评论区和域名和备案相关的东西。
+### 回收站
+这里存放删除的博客，还有一次恢复的机会，在回收站删除的博客将会彻底消失（很长时间也会自己删除）
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+##结构
+### 在src里写主要程序
+  用npm包管理工具安装相关依赖，依赖（在package.json中显示） index.html可以写窗口名字和放图标。
+### main.js写全局变量
+### style.css写全局类样式
+### assets用来存放图片图标 
+### router用于路由点击跳转
+### components用于存放车轮
+（可能会多次使用的器件）
+这里存放的是table器件（早期写的，其实后面我更喜欢直接用object传回item对象，会比这个精简很多很多）
+### views用于存放主要界面
+博客书写页面 恢复页面 设置页面 专题页面 主界面 登录界面
+并在大页面文件夹里面有自己的vue功能分类。
+### utils是封装的一些功能
+例如Request.js
+用于创建axios实例 请求和响应拦截 发送请求和返回promise对象 在后面可以直接调用这个封装的函数。
